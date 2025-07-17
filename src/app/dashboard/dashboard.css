@@ -1,0 +1,47 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0f7e9, #f0fff4);
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 240px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+  border-top: 5px solid #D9BFA3;
+}
+
+.card.profile {
+  border-top-color: #655340;
+}
+
+.card.todo {
+  border-top-color: #655340;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: #ebcfb2;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #655340;
+  font-size: 20px;
+}
+
+.card p {
+  color: #4f4f4f;
+  font-size: 14px;
+  margin-top: 10px;
+}

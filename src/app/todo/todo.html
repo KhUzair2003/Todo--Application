@@ -1,0 +1,47 @@
+<div class="header">
+  <h1>To Do List</h1>
+</div>
+
+<div class="todo-container">
+  <h5>Hacked by Cafe Zupas</h5>
+  <form (ngSubmit)="addTask()">
+    <input
+      type="text"
+      [(ngModel)]="newTask"
+      name="task"
+      placeholder="Task name"
+      required
+    />
+    <input
+      type="date"
+      [(ngModel)]="taskDate"
+      name="date"
+      required
+    />
+    <select [(ngModel)]="taskPriority" name="priority">
+      <option>High</option>
+      <option>Medium</option>
+      <option>Low</option>
+    </select>
+    <button type="submit">Add Task</button>
+  </form>
+
+  <div *ngFor="let group of groupedTasksByDate" class="date-group">
+    <h3>{{ group.date }}</h3>
+
+    <div *ngFor="let task of group.tasks" class="task">
+      <div>
+        <strong>{{ task.name }}</strong>
+        <span class="badge" [ngClass]="task.priority.toLowerCase()">{{ task.priority }}</span>
+        <br />
+        <small>Created at: {{ task.createdAt | date:'short' }}</small><br />
+        <small>Status: {{ task.status }}</small>
+      </div>
+      <div class="actions">
+        <button *ngIf="task.status==='todo'" (click)="changeStatus(task, 'inprogress')">➡️ In Progress</button>
+        <button *ngIf="task.status==='inprogress'" (click)="changeStatus(task, 'completed')">✅ Complete</button>
+        <button (click)="deleteTask(task)">❌</button>
+      </div>
+    </div>
+  </div>
+</div>

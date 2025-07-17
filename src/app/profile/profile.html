@@ -1,0 +1,39 @@
+<div class="header">
+  <h1>Profile</h1>
+</div>
+
+<div class="profile-container">
+  <div class="current-profile">
+    <h3>Current Profile</h3>
+        <h5>Hacked by Cafe Zupas</h5>
+    <p><strong>First Name:</strong> {{ user.Firstname }}</p>
+    <p><strong>Last Name:</strong> {{ user.Lastname }}</p>
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Password:</strong> {{ user.password }}</p>
+
+    <button class="logout-btn" (click)="onLogout()">Logout</button>
+  </div>
+
+  <div class="edit-profile">
+    <h3>Edit Profile</h3>
+    <form (ngSubmit)="onSave()">
+      <label>First Name:
+        <input type="text" [(ngModel)]="editableUser.Firstname" name="firstname">
+      </label>
+
+      <label>Last Name:
+        <input type="text" [(ngModel)]="editableUser.Lastname" name="lastname">
+      </label>
+
+      <label>Username:
+        <input type="text" [(ngModel)]="editableUser.username" name="username">
+      </label>
+
+      <label>Password:
+        <input type="text" [(ngModel)]="editableUser.password" name="password">
+      </label>
+
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+</div>
