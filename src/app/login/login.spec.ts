@@ -9,7 +9,7 @@ describe('Login', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Login] // ✅ works if standalone: true
+      imports: [Login] //  works if standalone: true
     }).compileComponents();
 
     fixture = TestBed.createComponent(Login);
